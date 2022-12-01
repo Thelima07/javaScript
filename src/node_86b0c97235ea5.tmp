@@ -1,0 +1,26 @@
+"use strict"
+
+function Pessoa() {
+
+    this.idade = 0
+
+    setInterval(() => {
+        console.log(this.idade++)
+    }, 2000);
+
+}
+
+const p1 = new Pessoa()
+
+
+
+function idade(i) {
+    if (i < 10)
+       return;
+    document.writeln('begin:' + i);
+    idade(i - 1);
+    document.writeln('end:' + i);
+ }
+ idade(3);
+
+ console.log(idade)
