@@ -1,31 +1,34 @@
-
-class Animal {
-
-    constructor(especie){
-        this.especie = especie
+function Animal (nome) {
+    this.nome = nome;
+  }
+  
+  Animal.prototype.falar = function() {
+     console.log(this.nome + ' faça barulho.');
+  }
+  
+  class Cachorro extends Animal {
+    falar() {
+      console.log(this.nome + ' lati.');
     }
+  }
+  
+  let cachorro = new Cachorro('Mitzie');
+  cachorro.falar(); // Mitzie lati.
 
-    falar(){
-        console.log(this.especie + ' fala ')
+
+  let Animal = {
+    falar() {
+       console.log(this.nome + ' faça barulho.');
     }
-
-    comer(){
-        console.log(this.especie + ' come ')
+ };
+ 
+ class Cachorro {
+    constructor(nome) {
+       this.nome = nome;
     }
-
-    dormir(){
-        console.log(this.especie + ' dorme ')
-    }
-
-}
-
-export default class Cachorro extends Animal{
-    falar(){
-        console.log(this.especie + ' fala au au au')
-    }
-
-    comer(){
-        console.log(this.especie + ' come ração ')
-    }
-}
-
+ }
+ 
+ Object.setPrototypeOf(Cachorro.prototype, Animal);
+ 
+ let cachorro = new Cachorro('Mitzie');
+ cachorro.falar(); //Mitzie faça barulho.
